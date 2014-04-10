@@ -1038,12 +1038,12 @@ end
 ```
 
 ```
-to_email        - The String email address to which the email will be sent.
-to_name         - The String name corresponding to the recipient.
-from_email      - The String email address from which the email will be sent.
-from_name       - The String name corresponding to the sender.
-delivery_method - The Symbol delivery method. [ :smtp | :sendmail ]
-                  (default: :smtp).
+to_email                - The String email address to which the email will be sent.
+to_name                 - The String name corresponding to the recipient.
+from_email              - The String email address from which the email will be sent.
+from_name               - The String name corresponding to the sender.
+delivery_method         - The Symbol delivery method. [ :smtp | :sendmail ]
+                          (default: :smtp).
 
 === SMTP Options (when delivery_method = :smtp) ===
 server_host     - The String hostname of the SMTP server (default: localhost).
@@ -1052,15 +1052,20 @@ server_auth     - A Boolean or Symbol, false if no authentication else a symbol
                   for the type of authentication [false | :plain | :login | :cram_md5]
                   (default: false).
 
-=== SMTP Auth Options (when server_auth = true) ===
-server_domain   - The String domain.
-server_user     - The String username.
-server_password - The String password.
+=== SMTP Auth Options (when server_auth != nil) ===
+server_domain           - The String domain.
+server_user             - The String username.
+server_password         - The String password.
+enable_starttls_auto    - Enables SMTP/TLS (STARTTLS) if server accepts
+                          (default: false)
+openssl_verify_mode     - OpenSSL verify mode used to validate certificates
+                          if needed. Accept an OpenSSL verify mode constant like
+                          OpenSSL::SSL::VERIFY_NONE (default: nil)
 
 === Sendmail Options (when delivery_method = :sendmail) ===
-sendmail_path   - The String path to the sendmail executable
-                  (default: "/usr/sbin/sendmail").
-sendmail_args   - The String args to send to sendmail (default "-i -t").
+sendmail_path           - The String path to the sendmail executable
+                          (default: "/usr/sbin/sendmail").
+sendmail_args           - The String args to send to sendmail (default "-i -t").
 ```
 
 Jabber
